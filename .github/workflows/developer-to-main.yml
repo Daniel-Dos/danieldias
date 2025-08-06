@@ -19,3 +19,4 @@ jobs:
           github_token: ${{ secrets.PERSONAL_TOKEN }}
           pr_label: "release, automated pr"
           pr_title: "PR automático da branch developer para main"
+          pr_body: "Este PR foi criado automaticamente para sincronizar as alterações da branch developer com a branch main."
