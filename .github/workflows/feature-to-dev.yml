@@ -26,7 +26,7 @@ jobs:
       - name: Create Pull Request to developer
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN }}
           base: developer
           branch: ${{ github.ref_name }}
           title: 'Feature: ${{ github.ref_name }}'
