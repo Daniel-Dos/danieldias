@@ -28,6 +28,6 @@ jobs:
         with:
           destination_branch: "developer"
           github_token: ${{ secrets.PERSONAL_TOKEN }}
-          pr_label: "feature, automated pr"
+          pr_label: "feature,automated-pr"
           pr_title: "PR automático da branch feature para developer"
           pr_body: "Este PR foi criado automaticamente para sincronizar as alterações da branch feature com a branch developer."
