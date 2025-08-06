@@ -1,19 +1,14 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+java:
+  label: Java
+  permalink: /java
+  description: java tag description
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+Golang:
+  label: Go
+  permalink: /golang
+  description: Golang tag description
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+apache:
+  label: Apache
+  permalink: /apache
+  description: Apache tag description

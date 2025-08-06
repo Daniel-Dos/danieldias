@@ -1,13 +1,22 @@
 ---
-slug: long-blog-post
-title: Long Blog Post
-authors: yangshun
-tags: [hello, docusaurus]
+slug: teste
+title: Teste
+authors: [daniel]
+tags: [Golang, Java, Apache]
 ---
+:::tip
+
+Use the power of React to create interactive blog posts.
+
+:::
+
+![Docusaurus Plushie](./img/docusaurus-plushie-banner.jpeg)
 
 This is the summary of a very long blog post,
 
-Use a `<!--` `truncate` `-->` comment to limit blog post size in the list view.
+
+
+
 
 <!-- truncate -->
 

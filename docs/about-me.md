@@ -1,4 +1,4 @@
-### 👨‍💻 About Me
+# 👨‍💻 About Me
 
 Backend Software Engineer with strong experience in designing and evolving distributed systems using Java (Spring Boot, Jakarta EE) and Golang. At Itaú Unibanco, I work on large-scale modernization, transforming legacy monoliths into scalable, maintainable microservices using DDD, Clean Architecture, and SOLID principles.
 
