@@ -1,4 +1,4 @@
-name: Feature Branch CI and PR
+name: Feature to Developer PR
 
 on:
   push:
