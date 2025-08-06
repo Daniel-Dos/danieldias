@@ -278,7 +278,7 @@ The difference is that we are not using an ***extends Crud, JPA or anything***.
 
 Although it is possible to use it in Jakarta Data, there is not much need for it.
 
-In addition, it also uses annotations for the operations of ***saving, searching*** and making a ***custom query***.
+In addition, it also uses annotations for the operations of **saving, searching** and making a **custom query**.
 
 Now we will create a class Service that use our ***CharacterRepository***:
 
