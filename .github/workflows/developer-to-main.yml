@@ -1,12 +1,14 @@
 name: Developer to Main PR
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - developer
 
 jobs:
   pr-to-main:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,5 +19,6 @@ jobs:
         with:
           destination_branch: "main"
           github_token: ${{ secrets.PERSONAL_TOKEN }}
-          pr_label: "release, automated pr"
+          pr_label: "feature,automated-pr"
           pr_title: "PR automático da branch developer para main"
+          pr_body: "Este PR foi criado automaticamente para sincronizar as alterações da branch developer com a branch main."
