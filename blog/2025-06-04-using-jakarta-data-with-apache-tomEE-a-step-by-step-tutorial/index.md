@@ -586,7 +586,7 @@ Now run the Project(github) ,open your Insomnia and test our application.
 
 ![execJava](./img/execJava.png)
 
-![exeJava2](./img/execJava2.png)
+![exeJava2](./img/execjava2.png)
 
 ![insomnia](./img/insomnia.png)
 
