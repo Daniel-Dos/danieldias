@@ -1,0 +1,27 @@
+name: Feature Branch CI
+
+on:
+  push:
+    branches:
+      - 'feature/**'
+  pull_request:
+    branches:
+      - developer
+    types: [opened, synchronize, reopened]
+
+jobs:
+  feature-branch-ci:
+    if: |
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && startsWith(github.head_ref, 'feature/'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Show event info
+        run: |
+          echo "Event: ${{ github.event_name }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "PR source: ${{ github.head_ref }}"
+          echo "PR target: ${{ github.base_ref }}"
