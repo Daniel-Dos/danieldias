@@ -1,4 +1,4 @@
-java:
+Java:
   label: Java
   permalink: /java
   description: java tag description
@@ -8,7 +8,7 @@ Golang:
   permalink: /golang
   description: Golang tag description
 
-apache:
+Apache:
   label: Apache
   permalink: /apache
   description: Apache tag description
