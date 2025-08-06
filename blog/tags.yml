@@ -12,3 +12,8 @@ Apache:
   label: Apache
   permalink: /apache
   description: Apache tag description
+
+Micronaut:
+  label: Micronaut
+  permalink: /micronaut
+  description: Micronaut tag description

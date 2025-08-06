@@ -2,7 +2,7 @@
 slug: creating-a-rest-application-with-micronaut
 title: 'Creating a Rest application with Micronaut'
 authors: [daniel]
-tags: [Java, Apache]
+tags: [Java, Micronaut]
 ---
 
 # Creating a Rest application with Micronaut
