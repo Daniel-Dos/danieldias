@@ -24,7 +24,7 @@ jobs:
         run: npm run build
 
       - name: Create Pull Request to developer
-        uses: repo-sync/pull-request@v2.3.0
+        uses: repo-sync/pull-request@v2
         with:
           destination_branch: "developer"
           github_token: ${{ secrets.PERSONAL_TOKEN }}
