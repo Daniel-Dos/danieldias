@@ -22,6 +22,8 @@ For this post we will create 2 simple endpoints (get/post) using the following l
 
 Please, enjoy the subject. And sorry for the grammatical mistakes.
 
+<!-- truncate -->
+
 ## Introduction at Micronaut
 
 Micronaut is a framework very similar in Spring for the construction of microservices.
