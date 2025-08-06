@@ -24,11 +24,9 @@ jobs:
         run: npm run build
 
       - name: Create Pull Request to developer
-        uses: peter-evans/create-pull-request@v5
+        uses: repo-sync/pull-request@v2
         with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
-          base: developer
-          branch: ${{ github.ref_name }}
-          title: 'Feature: ${{ github.ref_name }}'
-          body: 'PR automático da branch feature para developer'
-          draft: false
+          destination_branch: "developer"
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          pr_label: "feature, automated pr"
+          pr_title: "PR automático da branch feature para developer"
