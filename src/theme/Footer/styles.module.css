@@ -1,0 +1,45 @@
+.customFooter {
+  background-color: var(--ifm-footer-background-color);
+  color: var(--ifm-footer-color);
+  padding: 20px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--ifm-container-width);
+  margin: 0 auto;
+  flex-wrap: nowrap; /* evita quebrar a linha */
+}
+
+.leftSection,
+.centerSection,
+.rightSection {
+  display: flex;
+  align-items: center;
+}
+
+.centerSection {
+  flex-grow: 1;           /* faz a imagem ficar no centro, ocupando o espaço do meio */
+  justify-content: center; /* centraliza a imagem */
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+.rightSection {
+  gap: 15px;
+}
+
+.rightSection a {
+  color: var(--ifm-footer-link-color);
+  text-decoration: none;
+}
+
+.rightSection a:hover {
+  text-decoration: underline;
+}
