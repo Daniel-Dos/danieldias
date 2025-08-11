@@ -25,6 +25,9 @@ export default function Footer() {
           <a href="https://github.com/daniel-dos" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
+          <a href='https://hub.docker.com/u/danieldiasjava' target="_blank" rel="noopener noreferrer">
+            Docker Hub
+          </a>
         </div>
       </div>
     </footer>
