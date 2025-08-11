@@ -45,6 +45,12 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
+           readingTime: ({content, locale, frontMatter, defaultReadingTime}) =>
+            defaultReadingTime({
+              content,
+              locale,
+              options: {wordsPerMinute: 300},
+            }),
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
