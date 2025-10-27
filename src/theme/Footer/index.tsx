@@ -21,7 +21,7 @@ export default function Footer() {
 
         {/* Direita: Links */}
         <div className={styles.rightSection}>
-          <a href="/blog">Blog</a>
+          <a href="blog">Blog</a>
           <a href="https://github.com/daniel-dos" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
