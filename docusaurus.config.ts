@@ -67,6 +67,31 @@ const config: Config = {
   ],
 
   themeConfig: {
+     metadata: [
+      {name: 'keywords', content: 'danieldiasjava, blog, programming, java, developer, coding, tech, software, tutorials, tips, web development, daniel dias, danieldias.dev,software engineer, software developer,softwarearchitect'},
+    ],
+     headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://daniel-dos.github.io/danieldias/',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://daniel-dos.github.io/danieldias/',
+        '@type': 'personalWebsite',
+        name: 'danieldias.dev',
+        url: 'https://daniel-dos.github.io/danieldias/',
+        logo: 'https://daniel-dos.github.io/danieldias/img/logo.svg',
+      }),
+    },
+  ],
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'danieldias.dev',
