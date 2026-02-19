@@ -126,10 +126,15 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
+          href: 'https://medium.com/danieldiasjava/all',
+          label: 'My Medium Old Blog',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/Daniel-Dos/danieldias',
           label: 'GitHub',
           position: 'right',
-        },
+        }
       ],
     },
 
