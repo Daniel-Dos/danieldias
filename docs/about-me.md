@@ -1,55 +1,53 @@
 # 👨‍💻 About Me
 
-Backend Software Engineer with strong experience in designing and evolving distributed systems using Java (Spring Boot, Jakarta EE) and Golang. At Itaú Unibanco, I work on large-scale modernization, transforming legacy monoliths into scalable, maintainable microservices using DDD, Clean Architecture, and SOLID principles.
+I’m a Backend Software Engineer focused on building reliable, maintainable, and scalable systems.
 
-I combine hands-on development with architectural guidance — covering API design, asynchronous messaging (Kafka, Camel), observability (Datadog), CI/CD pipelines, AWS infrastructure, and performance tuning.
+My experience is centered around designing and evolving distributed systems, modernizing legacy applications, and implementing clean and sustainable architectures. I work mainly with Java and Golang, applying principles such as DDD, Clean Architecture, and SOLID to create long-term maintainable solutions.
 
-As a committer to  [Apache TomEE](https://tomee.apache.org/) and contributor to Jakarta EE and MicroProfile, I help improve enterprise Java runtimes and developer experience through open source contributions and community engagement.
+Currently, I’m also expanding my expertise by learning Rust, exploring its approach to memory safety, performance, and testing. I’ve been documenting my learning process and sharing insights as I deepen my understanding of the language.
 
-Passionate about clean code, simplicity, and building software that evolves with the business.
+### 💼 What I Work With
 
----
-Tech Stack: 
- - Java 8–21
- - Spring Boot
- - Jakarta EE
- - Golang
- - Apache TomEE
- - MicroProfile
- - REST APIs
- - JPA/Hibernate
- - Kafka
- - Apache Camel
- - Docker
- - Git
- - Jenkins
- - AWS (EC2, ECS, S3, RDS)
- - Terraform
- - CI/CD
- - Observability (Datadog)
- - Test Automation (JUnit, Mockito, Wiremock)
+- Languages: Java, Golang, Rust (learning)
+
+- Architecture: Microservices, Clean Architecture, Domain-Driven Design
+
+- Cloud & DevOps: AWS (ECS, EC2, S3, RDS), Docker, Terraform, CI/CD
+
+- Messaging & Distributed Systems: Kafka
+
+- Testing & Quality: JUnit, Mockito, Wiremock
+
+- Observability: Datadog
 
 ---
 
-### 📌 Featured Projects
+### 🌱 Open Source & Community
 
-Here are some projects I've been working on:
-
-- [Apache TomEE](https://github.com/apache/tomee): Mirror of Apache TomEE
-- [TomEE Site Generator](https://github.com/apache/tomee-site-generator): Mirror of Apache TomEE Site Generator
-- [Krazo](https://github.com/eclipse-ee4j/krazo): MVC framework for Jakarta EE
-- [Jakarta MVC](https://github.com/jakartaee/mvc): Jakarta MVC project
-- [Medium Blog Posts](https://github.com/Daniel-Dos/danieldiasjava-medium-english): Repository for my English blog posts on Medium
-- [Apache DeltaSpike](https://github.com/apache/deltaspike): Mirror of Apache DeltaSpike
+I’m an Apache TomEE committer and contributor to projects in the Jakarta EE ecosystem. Contributing to open source allows me to collaborate with engineers worldwide and continuously improve my technical standards.
 
 ---
 
-### 🤝 Let's Connect
+### 🧠 What Drives Me
 
-I'm always open to collaboration and discussions. Feel free to reach out to me through the platforms below:
+I believe good software should be:
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/danieldiasds/)
+- Simple before complex
+
+- Testable and observable
+
+- Designed for change
+
+- Focused on business impact
+
+I value continuous learning and enjoy exploring how different technologies solve similar problems — especially in backend and distributed system design.
 
 ---
+
+### 🤝 Let’s Connect
+
+I’m open to technical discussions, collaboration, and international remote opportunities.
+
+Feel free to connect with me on LinkedIn or explore my projects on GitHub.
 
 *Thank you for visiting my profile!*
