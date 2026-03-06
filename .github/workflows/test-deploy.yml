@@ -1,28 +1,42 @@
 name: Test deployment
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  push:
     branches:
       - main
       - developer
-    # Review gh actions docs if you want to further define triggers, paths, etc
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
+      - "feature/**"
+  pull_request:
+    branches:
+      - main
+      - developer
+      - "feature/**"
 
 jobs:
   test-deploy:
     name: Test deployment
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v4
+      # Faz checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Configura Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
+      # Instala dependências
       - name: Install dependencies
         run: npm ci
-      - name: Test build website
+
+      # Testa build
+      - name: Test build
         run: npm run build
+
+      # Passo extra só para ver logs
+      - name: Hello world log
+        run: echo "Workflow disparou com sucesso!"
