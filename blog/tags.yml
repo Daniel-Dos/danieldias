@@ -17,3 +17,13 @@ Micronaut:
   label: Micronaut
   permalink: /micronaut
   description: Micronaut tag description
+
+TomEE:
+  label: TomEE
+  permalink: /tomee
+  description: TomEE tag description
+
+Rust:
+  label: Rust
+  permalink: /rust
+  description: Rust tag description
