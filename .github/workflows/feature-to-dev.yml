@@ -1,31 +1,40 @@
-name: Feature to Developer PR
-'on':
+name: Feature Branch CI and Auto PR
+
+on:
   push:
     branches:
-      - feature/**
+      - "feature/**"
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
-  build-and-pr:
+  ci-and-pr:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      - name: Install dependencies
-        run: npm ci
-      - name: Run Lint
-        run: npm run lint --if-present
-      - name: Run Tests
-        run: npm test --if-present
-      - name: Build project
-        run: npm run build --if-present
+
+      - run: npm ci
+
+      - run: npm run lint --if-present
+      - run: npm test --if-present
+      - run: npm run build --if-present
+
       - name: Create PR if not exists
-        run: gh pr create --base developer --head "${GITHUB_REF_NAME}" --title "🚀 Feature: ${GITHUB_REF_NAME} → developer" --body "Texto da PR..." || echo "PR already exists"
+        run: |
+          gh pr create \
+            --base developer \
+            --head "${{ github.ref_name }}" \
+            --title "Auto PR: ${{ github.ref_name }} → developer" \
+            --body "PR automático criado pela pipeline para a branch **${{ github.ref_name }}**. Verifique as alterações antes de mergear." \
+            --label "auto-pr" \
+          || echo "PR already exists"
         env:
-          GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
