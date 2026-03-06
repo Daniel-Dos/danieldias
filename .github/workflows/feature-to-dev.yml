@@ -1,93 +1,31 @@
 name: Feature to Developer PR
-
-on:
+'on':
   push:
     branches:
-      - 'feature/**'
-
+      - feature/**
 jobs:
   build-and-pr:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
       pull-requests: write
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      
       - name: Install dependencies
         run: npm ci
-
       - name: Run Lint
         run: npm run lint --if-present
-
       - name: Run Tests
         run: npm test --if-present
-
       - name: Build project
         run: npm run build --if-present
-
       - name: Create PR if not exists
-        run: |
-          gh pr create \
-            --base developer \
-            --head "${{ github.ref_name }}" \
-            --title "🚀 Feature: ${{ github.ref_name }} → developer" \
-            --body "
-## 📦 Automatic Pull Request
-
-Este Pull Request foi criado automaticamente pela pipeline de CI.
-
-### 🔀 Branches
-- **Origem:** \`${{ github.ref_name }}\`
-- **Destino:** \`developer\`
-
-### 📋 Descrição
-
-Esta PR sincroniza as alterações da branch de feature com a branch **developer**, seguindo o fluxo de desenvolvimento do projeto.
-
-Fluxo utilizado:
-
-feature/* → developer → main
-
-### ⚙️ Validações executadas na pipeline
-
-A pipeline executou automaticamente:
-
-- ✅ Instalação de dependências
-- ✅ Lint do código
-- ✅ Execução de testes
-- ✅ Build do projeto
-
-### 🧪 Status da Pipeline
-
-Workflow: **${{ github.workflow }}**  
-Run ID: **${{ github.run_id }}**
-
-### 👀 Revisão
-
-Por favor revise:
-
-- lógica implementada
-- impacto em outras funcionalidades
-- qualidade do código
-- cobertura de testes
-
-### 📌 Observação
-
-Este PR foi gerado automaticamente pelo workflow do **GitHub Actions**.
-
---- 
-🤖 Automation powered by CI
-" \
-          || echo "PR already exists"
+        run: "gh pr create \\\n  --base developer \\\n  --head \"${{ github.ref_name }}\" \\\n  --title \"\U0001F680 Feature: ${{ github.ref_name }} → developer\" \\\n  --body \"\n         ## \U0001F4E6 Automatic Pull Request\n\n   Este Pull Request foi criado automaticamente pela pipeline de CI.\n\n  ### \U0001F500 Branches\n  - **Origem:** \\`${{ github.ref_name }}\\`\n  - **Destino:** \\`developer\\`\n\n### \U0001F4CB Descrição\n\nEsta PR sincroniza as alterações da branch de feature com a branch **developer**, seguindo o fluxo de desenvolvimento do projeto.\n\nFluxo utilizado:\n\nfeature/* → developer → main\n\n### ⚙️ Validações executadas na pipeline\n\nA pipeline executou automaticamente:\n\n- ✅ Instalação de dependências\n- ✅ Lint do código\n- ✅ Execução de testes\n- ✅ Build do projeto\n\n### \U0001F9EA Status da Pipeline\n\nWorkflow: **${{ github.workflow }}**  \n\nRun ID: **${{ github.run_id }}**\n\n### \U0001F440 Revisão\n\nPor favor revise:\n- lógica implementada\n- impacto em outras funcionalidades\n- qualidade do código\n- cobertura de testes\n\n### \U0001F4CC Observação\n\nEste PR foi gerado automaticamente pelo workflow do **GitHub Actions**.\n--- \n\U0001F916 Automation powered by CI\"\n\n|| echo \"PR already exists\"\n"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
