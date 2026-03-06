@@ -8,6 +8,11 @@ on:
 jobs:
   build-and-pr:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -16,27 +21,73 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
       
-      - name: npm install
-        run: npm install
-    
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
-        run: npm run build
+      - name: Run Lint
+        run: npm run lint --if-present
 
-      - run: npm run lint --if-present
-      - run: npm test --if-present
-      - run: npm run build --if-present
+      - name: Run Tests
+        run: npm test --if-present
+
+      - name: Build project
+        run: npm run build --if-present
 
       - name: Create PR if not exists
         run: |
           gh pr create \
             --base developer \
             --head "${{ github.ref_name }}" \
-            --title "Auto PR: ${{ github.ref_name }} → developer" \
-            --body "PR automático criado pela pipeline." \
+            --title "🚀 Feature: ${{ github.ref_name }} → developer" \
+            --body "
+## 📦 Automatic Pull Request
+
+Este Pull Request foi criado automaticamente pela pipeline de CI.
+
+### 🔀 Branches
+- **Origem:** \`${{ github.ref_name }}\`
+- **Destino:** \`developer\`
+
+### 📋 Descrição
+
+Esta PR sincroniza as alterações da branch de feature com a branch **developer**, seguindo o fluxo de desenvolvimento do projeto.
+
+Fluxo utilizado:
+
+feature/* → developer → main
+
+### ⚙️ Validações executadas na pipeline
+
+A pipeline executou automaticamente:
+
+- ✅ Instalação de dependências
+- ✅ Lint do código
+- ✅ Execução de testes
+- ✅ Build do projeto
+
+### 🧪 Status da Pipeline
+
+Workflow: **${{ github.workflow }}**  
+Run ID: **${{ github.run_id }}**
+
+### 👀 Revisão
+
+Por favor revise:
+
+- lógica implementada
+- impacto em outras funcionalidades
+- qualidade do código
+- cobertura de testes
+
+### 📌 Observação
+
+Este PR foi gerado automaticamente pelo workflow do **GitHub Actions**.
+
+--- 
+🤖 Automation powered by CI
+" \
           || echo "PR already exists"
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
