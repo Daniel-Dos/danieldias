@@ -1,36 +1,67 @@
-name: Feature to Developer PR
+name: Feature Branch CI and Auto PR
 
 on:
   push:
     branches:
-      - 'feature/**'
+      - "feature/**"
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  build-and-pr:
+  ci-and-pr:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-      
-      - name: npm install
-        run: npm install
-    
-      - name: Install dependencies
-        run: npm ci
+          cache: npm
 
-      - name: Build project
-        run: npm run build
+      - run: npm ci
 
-      - name: Create Pull Request to developer
-        uses: repo-sync/pull-request@v2
-        with:
-          destination_branch: "developer"
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          pr_label: "feature,automated-pr"
-          pr_title: "PR automático da branch feature para developer"
-          pr_body: "Este PR foi criado automaticamente para sincronizar as alterações da branch feature com a branch developer."
+      - run: npm run lint --if-present
+      - run: npm test --if-present
+      - run: npm run build --if-present
+
+      - name: Create PR if not exists
+        run: |
+          gh pr create \
+            --base developer \
+            --head "${{ github.ref_name }}" \
+            --title "Auto PR: ${{ github.ref_name }} → developer" \
+            --body "## 📦 Pull Request Automático
+            Este PR foi criado automaticamente pela pipeline de CI para sincronizar as alterações da branch **${{ github.ref_name }}** com a branch **developer**.
+            
+            ### 🔀 Branches
+            - **Origem:** \`${{ github.ref_name }}\`
+            - **Destino:** \`developer\`
+
+            ### ⚙️ Validações executadas
+            - ✅ Instalação de dependências
+            - ✅ Lint do código
+            - ✅ Execução de testes
+            - ✅ Build do projeto
+
+            ### 🧪 Status da pipeline
+            - Workflow: **${{ github.workflow }}**
+            - Run ID: **${{ github.run_id }}**
+
+            ### 👀 Revisão
+            Por favor revise:
+            - lógica implementada
+            - impacto em outras funcionalidades
+            - qualidade do código
+            - cobertura de testes
+
+            ### 📌 Observação
+            Este PR foi gerado automaticamente pelo workflow do **GitHub Actions**.
+            ---
+            🤖 Automation powered by CI
+            " \
+          || echo "PR already exists"
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}

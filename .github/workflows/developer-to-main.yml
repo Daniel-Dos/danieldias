@@ -11,14 +11,13 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Create Pull Request to main
-        uses: repo-sync/pull-request@v2
-        with:
-          destination_branch: "main"
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          pr_label: "feature,automated-pr"
-          pr_title: "PR automático da branch developer para main"
-          pr_body: "Este PR foi criado automaticamente para sincronizar as alterações da branch developer com a branch main."
+      - name: Create Pull Request developer → main
+        run: |
+          gh pr create \
+            --base main \
+            --head developer \
+            --title "Auto PR: developer → main" \
+            --body "PR automático criado após merge em developer." \
+          || echo "PR already exists"
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
