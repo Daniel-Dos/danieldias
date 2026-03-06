@@ -33,7 +33,35 @@ jobs:
             --base developer \
             --head "${{ github.ref_name }}" \
             --title "Auto PR: ${{ github.ref_name }} → developer" \
-            --body "PR automático criado pela pipeline para a branch **${{ github.ref_name }}**. Verifique as alterações antes de mergear." \
+            --body "## 📦 Pull Request Automático
+            Este PR foi criado automaticamente pela pipeline de CI para sincronizar as alterações da branch **${{ github.ref_name }}** com a branch **developer**.
+            
+            ### 🔀 Branches
+            - **Origem:** \`${{ github.ref_name }}\`
+            - **Destino:** \`developer\`
+
+            ### ⚙️ Validações executadas
+            - ✅ Instalação de dependências
+            - ✅ Lint do código
+            - ✅ Execução de testes
+            - ✅ Build do projeto
+
+            ### 🧪 Status da pipeline
+            - Workflow: **${{ github.workflow }}**
+            - Run ID: **${{ github.run_id }}**
+
+            ### 👀 Revisão
+            Por favor revise:
+            - lógica implementada
+            - impacto em outras funcionalidades
+            - qualidade do código
+            - cobertura de testes
+
+            ### 📌 Observação
+            Este PR foi gerado automaticamente pelo workflow do **GitHub Actions**.
+            ---
+            🤖 Automation powered by CI
+            " \
             --label "auto-pr" \
           || echo "PR already exists"
         env:
