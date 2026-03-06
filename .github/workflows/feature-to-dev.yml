@@ -62,7 +62,6 @@ jobs:
             ---
             🤖 Automation powered by CI
             " \
-            --label "auto-pr" \
           || echo "PR already exists"
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
