@@ -1,10 +1,10 @@
 name: Test deployment
 
 on:
-  #push:
-   # branches:
-   #   - main
-   #   - developer
+  push:
+    branches:
+      - main
+      - developer
       #- "feature/**"
   pull_request:
     branches:
