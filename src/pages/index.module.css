@@ -1,40 +1,300 @@
-.heroBanner {
+/* ============================================================
+   danieldias.dev — Hero page styles
+   Place at: src/pages/index.module.css
+   ============================================================ */
+
+/* ── Hero wrapper ── */
+.hero {
   position: relative;
-  padding: 17rem 0;
-  text-align: center;
-  overflow: hidden;
-  background-image: url('/img/dan-3.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* .heroBanner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-} */
-
-.heroBanner > .container {
-  position: relative;
-  z-index: 1;
-}
-
-.hero__title,
-.hero__subtitle {
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 6rem 0;
-  }
-}
-
-.buttons {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  background: #060914;
+}
+
+/* ── Background gradient ── */
+.bgGradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(0,172,215,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 40%, rgba(206,65,43,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 90%, rgba(142,207,112,0.05) 0%, transparent 60%),
+    #060914;
+}
+
+/* ── Perspective grid ── */
+.gridWrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 52%;
+  z-index: 1;
+  pointer-events: none;
+}
+.gridWrap svg { width: 100%; height: 100%; }
+
+/* ── Circuit traces ── */
+.circuit {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Left panel (terminal) ── */
+.panelLeft {
+  position: absolute;
+  left: 1.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  pointer-events: none;
+  animation: slideL 1s ease both;
+}
+@keyframes slideL {
+  from { opacity: 0; transform: translateY(-50%) translateX(-28px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* ── Right panel (network graph) ── */
+.panelRight {
+  position: absolute;
+  right: 1.5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  pointer-events: none;
+  animation: slideR 1s 0.25s ease both;
+}
+@keyframes slideR {
+  from { opacity: 0; transform: translateY(-50%) translateX(28px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+/* ── Butterfly ── */
+.butterfly {
+  position: absolute;
+  top: 30%;
+  right: 27%;
+  z-index: 9;
+  pointer-events: none;
+  filter: drop-shadow(0 0 14px rgba(0,200,255,0.9));
+  animation: flutter 3s ease-in-out infinite, floatBy 22s ease-in-out infinite;
+}
+@keyframes flutter {
+  0%,  100% { transform: scaleX(1)    rotate(0deg); }
+  25%        { transform: scaleX(.45) rotate(12deg); }
+  75%        { transform: scaleX(.45) rotate(-12deg); }
+}
+@keyframes floatBy {
+  0%   { top: 30%; right: 27%; }
+  25%  { top: 24%; right: 31%; }
+  50%  { top: 36%; right: 24%; }
+  75%  { top: 26%; right: 29%; }
+  100% { top: 30%; right: 27%; }
+}
+
+/* ── Birds ── */
+.bird1, .bird2 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+}
+.bird1 { top: 14%; left: -85px; animation: dB1 65s -18s linear infinite; }
+.bird2 { top: 23%; left: -55px; animation: dB2 85s -44s linear infinite; }
+@keyframes dB1 {
+  from  { transform: translateX(0)               translateY(0); }
+  25%   { transform: translateX(25vw)             translateY(-12px); }
+  50%   { transform: translateX(50vw)             translateY(6px); }
+  75%   { transform: translateX(75vw)             translateY(-9px); }
+  to    { transform: translateX(calc(100vw + 100px)) translateY(0); }
+}
+@keyframes dB2 {
+  from  { transform: translateX(0)              translateY(0); }
+  33%   { transform: translateX(33vw)            translateY(10px); }
+  66%   { transform: translateX(66vw)            translateY(-5px); }
+  to    { transform: translateX(calc(100vw + 70px)) translateY(0); }
+}
+
+/* ── Center content ── */
+.heroContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ── Role badge ── */
+.roleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0,172,215,0.08);
+  border: 1px solid rgba(0,172,215,0.4);
+  border-radius: 30px;
+  padding: 0.3rem 1.3rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #64d8f8;
+  margin-bottom: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  animation: fadeUp 0.9s ease both;
+  box-shadow: 0 0 20px rgba(0,172,215,0.15);
+}
+.roleBadge::before,
+.roleBadge::after { content: '⬡'; opacity: 0.6; }
+
+/* ── Title ── */
+.heroTitle {
+  font-family: 'Lora', serif;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  background: linear-gradient(135deg, #ffffff 0%, #b8e0f8 50%, #64d8f8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  animation: fadeUp 0.9s 0.15s ease both;
+}
+
+/* ── Subtitle ── */
+.heroSub {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #6a9ab8;
+  max-width: 520px;
+  margin: 0 auto 1.6rem;
+  line-height: 1.75;
+  letter-spacing: 0.06em;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+
+/* ── Tech badges row ── */
+.techBadges {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.9s 0.45s ease both;
+}
+
+.techBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 40px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.25s, box-shadow 0.25s;
+  text-decoration: none;
+}
+.techBadge:hover { transform: translateY(-5px) scale(1.07); }
+
+.techLabel { font-weight: 800; font-size: 0.94rem; letter-spacing: 0.05em; }
+
+.javaBadge  { background: rgba(248,152,32,0.1); border: 1.5px solid rgba(248,152,32,0.45); }
+.javaBadge:hover  { box-shadow: 0 6px 28px rgba(248,152,32,0.4); }
+.javaLabel  { color: #f89820; }
+
+.goBadge    { background: rgba(0,172,215,0.1);  border: 1.5px solid rgba(0,172,215,0.45); }
+.goBadge:hover    { box-shadow: 0 6px 28px rgba(0,172,215,0.4); }
+.goLabel    { color: #00acd7; }
+
+.rustBadge  { background: rgba(206,65,43,0.1);  border: 1.5px solid rgba(206,65,43,0.45); }
+.rustBadge:hover  { box-shadow: 0 6px 28px rgba(206,65,43,0.4); }
+.rustLabel  { color: #ce412b; }
+
+.apacheBadge { background: rgba(210,60,30,0.1); border: 1.5px solid rgba(210,60,30,0.45); padding: 0.5rem 1rem; }
+.apacheBadge:hover { box-shadow: 0 6px 28px rgba(210,60,30,0.4); }
+.apacheLabel { color: #d2391e; }
+
+/* ── CTA buttons ── */
+.btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 0.9s 0.6s ease both;
+}
+
+.btnPrimary {
+  display: inline-block;
+  padding: 0.75rem 2.2rem;
+  border-radius: 40px;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(135deg, #0080b0, #00c0e0);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0,172,215,0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,172,215,0.65);
+  color: white;
+}
+
+.btnSecondary {
+  display: inline-block;
+  padding: 0.75rem 2.2rem;
+  border-radius: 40px;
+  font-weight: 800;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'Nunito', sans-serif;
+  background: rgba(255,255,255,0.04);
+  color: #8ab4cc;
+  border: 1.5px solid rgba(100,180,220,0.3);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+.btnSecondary:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(100,180,220,0.55);
+  color: #c8e8f8;
+}
+
+/* ── Cursor blink ── */
+.cursor { animation: blink 1s infinite; }
+
+/* ── Floating ecosystem icons (Docker, Pulsar, Apache, OSS) ── */
+.floatIcon {
+  position: absolute;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0.72;
+  animation: floatUpDown 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(0,172,215,0.25));
+}
+
+@keyframes floatUpDown {
+  0%,  100% { transform: translateY(0px);  }
+  50%        { transform: translateY(-10px); }
+}
+
+/* ── Features section ── */
+.features {
+  position: relative;
+  background: #070d1a;
+  padding: 5rem 2rem 6rem;
+  border-top: 1px solid rgba(0,172,215,0.12);
+}
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,172,215,0.5), transparent);
 }

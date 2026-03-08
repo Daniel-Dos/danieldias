@@ -1,45 +1,100 @@
-.customFooter {
-  background-color: var(--ifm-footer-background-color);
-  color: var(--ifm-footer-color);
-  padding: 20px;
+/* ============================================================
+   Footer styles
+   Place at: src/theme/Footer/styles.module.css
+   ============================================================ */
+
+.footer {
+  background: #040710;
+  border-top: 1px solid rgba(0,172,215,0.12);
+  padding: 3rem 2rem 2rem;
+  font-family: 'Nunito', sans-serif;
+}
+.footer::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,172,215,0.4), transparent);
+  margin-bottom: 3rem;
 }
 
-.footerContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: var(--ifm-container-width);
+.inner {
+  max-width: 1000px;
   margin: 0 auto;
-  flex-wrap: nowrap; /* evita quebrar a linha */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
 }
 
-.leftSection,
-.centerSection,
-.rightSection {
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.brandName {
+  font-family: 'Lora', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #c8e8f8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.brandName:hover { color: #00acd7; }
+
+.tagline {
+  font-size: 0.85rem;
+  color: #4a7a9a;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.link {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #4a7a9a;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.link:hover { color: #00acd7; }
+
+.bottom {
+  max-width: 1000px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,172,215,0.08);
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.centerSection {
-  flex-grow: 1;           /* faz a imagem ficar no centro, ocupando o espaço do meio */
-  justify-content: center; /* centraliza a imagem */
+.copy {
+  font-size: 0.8rem;
+  color: #2a4a5e;
+  font-weight: 700;
 }
 
-.logo {
-  width: 250px;
-  height: auto;
-  object-fit: contain;
+.socials {
+  display: flex;
+  gap: 1rem;
 }
 
-.rightSection {
-  gap: 15px;
-}
-
-.rightSection a {
-  color: var(--ifm-footer-link-color);
+.socialLink {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #2a4a5e;
   text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
 }
-
-.rightSection a:hover {
-  text-decoration: underline;
-}
+.socialLink:hover { color: #00acd7; }
