@@ -116,6 +116,11 @@ pre, code {
   border-radius: 8px;
 }
 
+/* code {
+  font-family: "Fira Code", monospace;
+  font-size: 0.95rem;
+} */
+
 /* ---------- Sidebar ---------- */
 .menu__link {
   color: #6a9ab8;
