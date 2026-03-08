@@ -1,68 +1,51 @@
-import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
+import React from 'react';
 import styles from './styles.module.css';
 
 type FeatureItem = {
+  icon: string;
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: ReactNode;
+  description: string;
 };
 
-const FeatureList: FeatureItem[] = [
+const features: FeatureItem[] = [
   {
+    icon: '⚡',
     title: 'Real-World Technical Content',
-    Svg: require('@site/static/img/undraw_programming.svg').default,
-    description: (
-      <>
-        I share real experiences with Java, Go, and other technologies — straight from the daily work of a software engineer.
-      </>
-    ),
+    description:
+      'Real experiences with Java, Go, Rust, and more — from the daily work of building distributed systems.',
   },
   {
+    icon: '🏗️',
     title: 'Focus on Best Practices',
-    Svg: require('@site/static/img/undraw_code-thinking.svg').default,
-    description: (
-      <>
-        Clean architecture, readable code, testing, and scalable solutions. More than just tutorials — solid software engineering foundations.
-      </>
-    ),
+    description:
+      'Clean architecture, readable code, testing, and scalable solutions. Solid engineering foundations.',
   },
   {
-    title: 'Continuous Learning and Exploration',
-    Svg: require('@site/static/img/undraw_learning.svg').default,
-    description: (
-      <>
-        This blog isn’t limited to specific stacks. It’s an open space to explore ideas, languages, and tools that drive technical growth.
-      </>
-    ),
+    icon: '🌐',
+    title: 'Open Source & Community',
+    description:
+      'Apache Foundation projects, distributed systems, and tools that drive technical growth beyond any single stack.',
   },
 ];
 
-
-function Feature({title, Svg, description}: FeatureItem) {
+function FeatureCard({ icon, title, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
+    <div className={styles.card}>
+      <span className={styles.cardIcon}>{icon}</span>
+      <h3 className={styles.cardTitle}>{title}</h3>
+      <p className={styles.cardDesc}>{description}</p>
     </div>
   );
 }
 
-export default function HomepageFeatures(): ReactNode {
+export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+      <h2 className={styles.sectionTitle}>What you'll find here</h2>
+      <div className={styles.cards}>
+        {features.map((f, i) => (
+          <FeatureCard key={i} {...f} />
+        ))}
       </div>
     </section>
   );

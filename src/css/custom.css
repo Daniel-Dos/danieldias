@@ -1,38 +1,209 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* ============================================================
+   danieldias.dev — Tech Futuristic Theme
+   Place this file at: src/css/custom.css
+   ============================================================ */
 
-/* You can override the default Infima variables here. */
+/* ---------- Docusaurus token overrides ---------- */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #00acd7;
+  --ifm-color-primary-dark: #0090b8;
+  --ifm-color-primary-darker: #0080a8;
+  --ifm-color-primary-darkest: #006080;
+  --ifm-color-primary-light: #20c0e8;
+  --ifm-color-primary-lighter: #40d0f0;
+  --ifm-color-primary-lightest: #80e8ff;
+
+  --ifm-background-color: #060914;
+  --ifm-background-surface-color: #070d1a;
+  --ifm-font-color-base: #c8dff0;
+  --ifm-heading-color: #e0f0ff;
+  --ifm-link-color: #00acd7;
+  --ifm-link-hover-color: #40d0f0;
+
+  --ifm-font-family-base: 'Nunito', sans-serif;
+  --ifm-heading-font-family: 'Lora', serif;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.75;
+
+  --ifm-navbar-background-color: rgba(6,9,20,0.92);
+  --ifm-navbar-shadow: 0 1px 0 rgba(0,172,215,0.15);
+  --ifm-footer-background-color: #040710;
+
+  --ifm-code-font-size: 90%;
+  --ifm-code-background: rgba(0,172,215,0.08);
+
+  /* Custom palette */
+  --tech-blue:   #00acd7;
+  --tech-rust:   #ce412b;
+  --tech-java:   #f89820;
+  --tech-green:  #8ecf70;
+  --tech-apache: #d2391e;
+  --bg-dark:     #060914;
+  --bg-surface:  #070d1a;
+  --border-glow: rgba(0,172,215,0.2);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-background-color: #060914;
+  --ifm-background-surface-color: #070d1a;
+  --ifm-font-color-base: #c8dff0;
+  --ifm-heading-color: #e0f0ff;
 }
 
-.footer-bg {
-  background-image: url('/img/footer.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  min-height: 100px; /* ajuste conforme necessário */
+/* ---------- Global ---------- */
+html, body {
+  background: var(--bg-dark);
+  color: var(--ifm-font-color-base);
+  overflow-x: hidden;
+}
+
+/* Grain texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.018;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0,172,215,0.12);
+}
+.navbar__title {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  color: #e0f0ff;
+  letter-spacing: 0.02em;
+}
+.navbar__link {
+  font-weight: 700;
+  color: #8ab4cc;
+  transition: color 0.2s;
+}
+.navbar__link:hover,
+.navbar__link--active {
+  color: #00acd7;
+}
+
+/* ---------- Blog / Doc pages ---------- */
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  font-family: 'Lora', serif;
+  color: var(--ifm-heading-color);
+}
+
+.markdown a {
+  color: var(--tech-blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,172,215,0.3);
+  transition: border-color 0.2s, color 0.2s;
+}
+.markdown a:hover {
+  color: #40d0f0;
+  border-color: #40d0f0;
+}
+
+pre, code {
+  font-family: 'Fira Code', monospace !important;
+  background: rgba(0,172,215,0.06) !important;
+  border: 1px solid rgba(0,172,215,0.15) !important;
+  border-radius: 8px;
+}
+
+/* ---------- Sidebar ---------- */
+.menu__link {
+  color: #6a9ab8;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
+}
+.menu__link:hover,
+.menu__link--active {
+  color: #00acd7;
+  background: rgba(0,172,215,0.08);
+}
+
+/* ---------- Pagination / TOC ---------- */
+.pagination-nav__link {
+  border: 1px solid var(--border-glow);
+  border-radius: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.pagination-nav__link:hover {
+  border-color: rgba(0,172,215,0.5);
+  box-shadow: 0 4px 20px rgba(0,172,215,0.1);
+}
+
+.table-of-contents__link {
+  color: #4a7a9a;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  color: #00acd7;
+}
+
+/* ---------- Tags ---------- */
+.tag {
+  background: rgba(0,172,215,0.1);
+  border: 1px solid rgba(0,172,215,0.3);
+  border-radius: 20px;
+  color: #64d8f8;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+/* ---------- Admonitions ---------- */
+.alert {
+  background: rgba(0,172,215,0.06);
+  border: 1px solid rgba(0,172,215,0.2);
+  border-radius: 12px;
+}
+.alert--warning {
+  background: rgba(248,152,32,0.06);
+  border-color: rgba(248,152,32,0.2);
+}
+.alert--danger {
+  background: rgba(206,65,43,0.06);
+  border-color: rgba(206,65,43,0.2);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #040710; }
+::-webkit-scrollbar-thumb {
+  background: rgba(0,172,215,0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(0,172,215,0.5); }
+
+/* ---------- Selection ---------- */
+::selection {
+  background: rgba(0,172,215,0.3);
+  color: #ffffff;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+@keyframes scan {
+  from { transform: translateY(0); }
+  to   { transform: translateY(380px); }
 }

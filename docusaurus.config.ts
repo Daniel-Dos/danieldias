@@ -1,23 +1,18 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
-
 const config: Config = {
-  title: ' ',
-  tagline: ' ',
+  title: 'Daniel Dias',
+  tagline: 'Java · Go · Rust · Distributed Systems · Open Source',
   favicon: 'img/favicon.ico',
-
-  future: {
-    v4: true,
-  },
 
   url: 'https://daniel-dos.github.io',
   baseUrl: '/danieldias/',
 
   organizationName: 'daniel-dos',
   projectName: 'danieldias',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -27,14 +22,28 @@ const config: Config = {
     locales: ['en'],
   },
 
-  /* =======================
-     MERMAID (OFICIAL)
-     ======================= */
-  themes: ['@docusaurus/theme-mermaid'],
-
-  markdown: {
-    mermaid: true,
-  },
+  /* ── Google Fonts loaded via <head> tags ── */
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;700;800&family=Fira+Code:wght@400;500&display=swap',
+      },
+    },
+  ],
 
   presets: [
     [
@@ -42,20 +51,12 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          editUrl: 'https://github.com/daniel-dos/danieldias/tree/main/',
         },
         blog: {
           showReadingTime: true,
-          blogSidebarCount: 20,
-          readingTime: ({content, locale, defaultReadingTime}) =>
-            defaultReadingTime({
-              content,
-              locale,
-              options: {wordsPerMinute: 300},
-            }),
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
+          feedOptions: { type: ['rss', 'atom'], xslt: true },
+          editUrl: 'https://github.com/daniel-dos/danieldias/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -68,97 +69,36 @@ const config: Config = {
   ],
 
   themeConfig: {
-    metadata: [
-      {
-        name: 'keywords',
-        content:
-          'danieldiasjava, blog, programming, java, developer, coding, tech, software, tutorials, tips, web development, daniel dias, danieldias.dev, software engineer, software developer, software architect',
-      },
-    ],
-
-    headTags: [
-      {
-        tagName: 'link',
-        attributes: {
-          rel: 'preconnect',
-          href: 'https://daniel-dos.github.io/danieldias/',
-        },
-      },
-      {
-        tagName: 'script',
-        attributes: {
-          type: 'application/ld+json',
-        },
-        innerHTML: JSON.stringify({
-          '@context': 'https://daniel-dos.github.io/danieldias/',
-          '@type': 'personalWebsite',
-          name: 'danieldias.dev',
-          url: 'https://daniel-dos.github.io/danieldias/',
-          logo: 'https://daniel-dos.github.io/danieldias/img/logo.svg',
-        }),
-      },
-    ],
-
-    image: 'img/docusaurus-social-card.jpg',
-
-    /* =======================
-       MERMAID THEME CONFIG
-       ======================= */
-    mermaid: {
-      theme: {
-        light: 'default',
-        dark: 'dark',
-      },
-    },
+    image: 'img/social-card.jpg',
 
     navbar: {
-      title: 'danieldias.dev',
-      logo: {
-        alt: 'danieldias.dev Logo',
-        src: 'img/logo.svg',
-      },
+      title: 'Daniel Dias',
+      logo: { alt: 'Daniel Dias Logo', src: 'img/logo.svg' },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'danielSidebar',
-          position: 'left',
-          label: 'About Me',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://medium.com/danieldiasjava/all',
-          label: 'My Medium Old Blog',
-          position: 'right',
-        },
-        {
-          href: 'https://github.com/Daniel-Dos/danieldias',
-          label: 'GitHub',
-          position: 'right',
-        }
+        { to: '/blog',                          label: 'Blog',     position: 'left' },
+        { type: 'docSidebar', sidebarId: 'danielSidebar', label: 'About', position: 'left' },
+        { href: 'https://github.com/daniel-dos', label: 'GitHub', position: 'right' },
       ],
+      hideOnScroll: false,
+      style: 'dark',
     },
 
+    /* footer is fully swizzled — themeConfig footer kept minimal */
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'More',
-          items: [
-            {label: 'Blog', to: '/blog'},
-            {
-              label: 'GitHub',
-              href: 'https://github.com/daniel-dos',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} danieldias.dev. Built with Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Daniel Dias`,
     },
 
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: ['go', 'java', 'yaml'],
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
+      additionalLanguages: ['java', 'rust', 'go', 'bash', 'toml', 'yaml'],
+    },
+
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
     },
   } satisfies Preset.ThemeConfig,
 };
