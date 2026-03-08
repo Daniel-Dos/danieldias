@@ -15,7 +15,7 @@ export default function Footer() {
 
         <nav className={styles.links} aria-label="Footer navigation">
           <Link to="/blog"                           className={styles.link}>Blog</Link>
-          <Link to="/docs"                           className={styles.link}>About</Link>
+          <Link to="/docs/about-me"                  className={styles.link}>About</Link>
           <a href="https://github.com/daniel-dos"   target="_blank" rel="noopener noreferrer" className={styles.link}>GitHub</a>
           <a href="https://www.apache.org"           target="_blank" rel="noopener noreferrer" className={styles.link}>Apache</a>
           <a href="https://www.linkedin.com/in/daniel-dias" target="_blank" rel="noopener noreferrer" className={styles.link}>Linkedin</a>
