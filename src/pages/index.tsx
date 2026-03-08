@@ -506,7 +506,7 @@ export default function Home() {
 
           <div className={styles.btns}>
             <Link to="/blog" className={styles.btnPrimary}>📖 Read the Blog</Link>
-            <Link to="/docs" className={styles.btnSecondary}>About Me</Link>
+            <Link to="/docs/about-me" className={styles.btnSecondary}>About Me</Link>
           </div>
         </div>
       </section>
