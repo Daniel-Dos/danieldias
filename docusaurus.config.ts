@@ -14,12 +14,25 @@ const config: Config = {
   projectName: 'danieldias',
   trailingSlash: false,
 
+  future: {
+    v4: true,
+  },
+
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  /* =======================
+     MERMAID (OFICIAL)
+     ======================= */
+  themes: ['@docusaurus/theme-mermaid'],
+
+  markdown: {
+    mermaid: true,
   },
 
   /* ── Google Fonts loaded via <head> tags ── */
@@ -55,6 +68,7 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
+           blogSidebarCount: 50,
           feedOptions: { type: ['rss', 'atom'], xslt: true },
           editUrl: 'https://github.com/daniel-dos/danieldias/tree/main/',
           onInlineTags: 'warn',
@@ -71,11 +85,18 @@ const config: Config = {
   themeConfig: {
     image: 'img/social-card.jpg',
 
+    mermaid: {
+      theme: {
+        light: 'default',
+        dark: 'dark',
+      },
+    },
+
     navbar: {
       title: 'Daniel Dias',
       logo: { alt: 'Daniel Dias Logo', src: 'img/logo.svg' },
       items: [
-        { to: '/blog',                          label: 'Blog',     position: 'left' },
+        { to: '/blog', label: 'Blog', position: 'left' },
         { type: 'docSidebar', sidebarId: 'danielSidebar', label: 'About', position: 'left' },
         { href: 'https://github.com/daniel-dos', label: 'GitHub', position: 'right' },
       ],
@@ -83,21 +104,31 @@ const config: Config = {
       style: 'dark',
     },
 
-    /* footer is fully swizzled — themeConfig footer kept minimal */
     footer: {
       style: 'dark',
       copyright: `© ${new Date().getFullYear()} Daniel Dias`,
     },
 
     prism: {
-      theme: prismThemes.vsDark,
-      darkTheme: prismThemes.vsDark,
-      additionalLanguages: ['java', 'rust', 'go', 'bash', 'toml', 'yaml'],
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: [
+        'java',
+        'rust',
+        'go',
+        'bash',
+        'toml',
+        'yaml',
+        'json',
+        'protobuf',
+        'docker',
+        'properties'
+      ],
     },
 
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: false,
+      disableSwitch: true,
       respectPrefersColorScheme: false,
     },
   } satisfies Preset.ThemeConfig,
