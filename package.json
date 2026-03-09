@@ -22,6 +22,7 @@
     "@mdx-js/react": "^3.0.0",
     "@shikijs/rehype": "^4.0.1",
     "clsx": "^2.0.0",
+    "counterapi": "^2.1.2",
     "docusaurus-preset-shiki-twoslash": "^1.1.41",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
