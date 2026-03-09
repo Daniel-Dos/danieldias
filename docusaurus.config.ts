@@ -98,6 +98,7 @@ const config: Config = {
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
         { type: 'docSidebar', sidebarId: 'danielSidebar', label: 'About', position: 'left' },
+        {to: '/stats', label: 'Stats', position: 'left'},
         { href: 'https://github.com/daniel-dos', label: 'GitHub', position: 'right' },
       ],
       hideOnScroll: false,
