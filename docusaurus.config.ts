@@ -68,7 +68,7 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
-           blogSidebarCount: 50,
+          blogSidebarCount: 50,
           feedOptions: { type: ['rss', 'atom'], xslt: true },
           editUrl: 'https://github.com/daniel-dos/danieldias/tree/main/',
           onInlineTags: 'warn',
@@ -76,9 +76,33 @@ const config: Config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: ['./src/css/custom.css', './src/css/audio-reader.css'],
+          customCss: ['./src/css/custom.css'],
         },
       } satisfies Preset.Options,
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'blog-rust',
+        routeBasePath: 'blog-rust',
+        blogTitle: 'Rust',
+        blogDescription: 'Artigos sobre linguagem Rust e ecossistema',
+        path: './blog-rust',
+        authorsMapPath: '../blog/authors.yml',
+        tags: '../blog/tags.yml',
+        blogSidebarCount: 'ALL',
+        blogSidebarTitle: 'All posts',
+        postsPerPage: 10,
+        showReadingTime: true,
+        feedOptions: { type: ['rss', 'atom'], xslt: true },
+        editUrl: 'https://github.com/daniel-dos/danieldias/tree/main/',
+        onInlineTags: 'warn',
+        onInlineAuthors: 'warn',
+        onUntruncatedBlogPosts: 'warn',
+      },
     ],
   ],
 
@@ -97,8 +121,9 @@ const config: Config = {
       logo: { alt: 'Daniel Dias Logo', src: 'img/logo.svg' },
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
+        { to: '/blog-rust', label: 'Rust', position: 'left' },
         { type: 'docSidebar', sidebarId: 'danielSidebar', label: 'About', position: 'left' },
-        {to: '/stats', label: 'Stats', position: 'left'},
+        { to: '/stats', label: 'Stats', position: 'left' },
         { href: 'https://github.com/daniel-dos', label: 'GitHub', position: 'right' },
       ],
       hideOnScroll: false,

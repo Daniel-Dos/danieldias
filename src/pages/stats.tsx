@@ -24,7 +24,7 @@ const POSTS = [
   },
   {
     title:     'Testing in Rust: A Practical Guide',
-    permalink: '/danieldias/blog/2026/02/25/testing-in-rust/test-in-rust',
+    permalink: '/danieldias/rust/2026/02/25/testing-in-rust/test-in-rust',
     date:      '2026-02-25',
     tags:      ['rust', 'testing'],
   },
