@@ -88,7 +88,7 @@ const config: Config = {
       {
         id: 'blog-rust',
         routeBasePath: 'blog-rust',
-        blogTitle: 'Rust',
+        blogTitle: 'Blog-Rust',
         blogDescription: 'Artigos sobre linguagem Rust e ecossistema',
         path: './blog-rust',
         authorsMapPath: '../blog/authors.yml',
@@ -121,7 +121,7 @@ const config: Config = {
       logo: { alt: 'Daniel Dias Logo', src: 'img/logo.svg' },
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/blog-rust', label: 'Rust', position: 'left' },
+        { to: '/blog-rust', label: 'Blog-Rust', position: 'left' },
         { type: 'docSidebar', sidebarId: 'danielSidebar', label: 'About', position: 'left' },
         { to: '/stats', label: 'Stats', position: 'left' },
         { href: 'https://github.com/daniel-dos', label: 'GitHub', position: 'right' },
