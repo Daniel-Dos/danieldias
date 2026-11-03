@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram id="rust-rig-arquitetura" name="Arquitetura">
+    <mxGraphModel dx="720" dy="700" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="720" pageHeight="700" math="0" shadow="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="main" value="&lt;b&gt;main()&lt;/b&gt;&lt;br&gt;#[tokio::main]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="client" value="&lt;b&gt;Cliente Ollama&lt;/b&gt;&lt;br&gt;Ollama::new().completion(&amp;quot;gemma4:31b-cloud&amp;quot;)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="125" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="agent" value="&lt;b&gt;AgentBuilder&lt;/b&gt;&lt;br&gt;preamble: &amp;quot;especialista em Rust&amp;quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="prompt" value="&lt;b&gt;agent.prompt()&lt;/b&gt;&lt;br&gt;envia a pergunta ao modelo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="315" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="rig" value="&lt;b&gt;Rig&lt;/b&gt;&lt;br&gt;monta a requisição HTTP e o JSON" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="410" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="cloud" value="&lt;b&gt;Ollama Cloud&lt;/b&gt;&lt;br&gt;/v1/chat/completions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="505" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="out" value="&lt;b&gt;Terminal&lt;/b&gt;&lt;br&gt;println! da resposta" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="600" width="340" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" value="1. cria o cliente" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="main" target="client">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="2. configura o agente" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="client" target="agent">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="3. build()" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="agent" target="prompt">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="4. chama o modelo" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="prompt" target="rig">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e5" value="5. POST + JSON" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="rig" target="cloud">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" value="6. devolve a resposta" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=block;fontSize=11;dashed=1;" edge="1" parent="1" source="cloud" target="out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
