@@ -27,6 +27,7 @@
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-medium-image-zoom": "^5.4.9",
     "shiki": "^4.0.1"
   },
   "devDependencies": {
