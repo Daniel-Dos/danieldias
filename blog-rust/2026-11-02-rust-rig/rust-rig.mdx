@@ -15,9 +15,9 @@ Eu usualmente trabalho com Java e Go, mas às vezes estudo Rust por curiosidade.
 
 Então eu comecei a pesquisar e descobri um framework fantástico em Rust chamado **Rig**. Ele torna a interação com LLMs incrivelmente intuitiva, aproximando a experiência do desenvolvedor do que vemos em outros SDKs de IA maduros.
 
-então, o propósito deste artigo é criar um exemplo simples de um aplicativo em Rust que se conecta ao **Ollama Cloud** usando uma sessão autenticada via `ollama signin`.
+O propósito deste artigo é criar um exemplo simples de um aplicativo em Rust que se conecta ao **Ollama Cloud** usando uma sessão autenticada via `ollama signin`.
 
-vamos explorar juntos como construir uma aplicação Rust que interage com LLMs de forma eficiente e segura.
+Vamos explorar juntos como construir uma aplicação Rust que interage com LLMs de forma eficiente e segura.
 
 <!-- truncate -->
 
@@ -41,7 +41,7 @@ Em suma, ele lida com a infraestrutura chata para que você possa se concentrar 
 
 Para começar, você precisará autenticar seu ambiente local executando [`ollama signin`](https://docs.ollama.com/api/authentication#signing-in) e fornecendo sua [chave de API](https://docs.ollama.com/api/authentication#api-keys).
 
-e iremos usar o modelo [`GEMMA4`](https://ollama.com/library/gemma4:31b-cloud) com 31 bilhões de parâmetros na nuvem, que é um modelo LLM de código aberto, otimizado para tarefas de linguagem natural.
+Iremos usar o modelo [`GEMMA4`](https://ollama.com/library/gemma4:31b-cloud) com 31 bilhões de parâmetros na nuvem, que é um modelo LLM de código aberto, otimizado para tarefas de linguagem natural.
 
 Isso permitirá que seu aplicativo Rust se comunique com o Ollama Cloud.
 
@@ -139,7 +139,7 @@ Para executar a aplicação, abra o terminal na raiz do projeto ou pela IDE e ex
 cargo run
 ```
 
-e você verá a saída do modelo LLM respondendo à sua solicitação, explicando as vantagens de usar Rust com IA.
+e verremos a saída do modelo LLM respondendo à sua solicitação, explicando as vantagens de usar Rust com IA.
 
 ![exec1](./img/exe1.png)
 
@@ -148,27 +148,27 @@ e você verá a saída do modelo LLM respondendo à sua solicitação, explicand
 ![exec3](./img/exec3.png)
 
 
-basta executar o comando `ollama service` para ver os modelos disponíveis e suas versões, como mostrado na imagem abaixo.
+basta executar o comando `ollama service` para verificar as chamadas de API que estão sendo feitas para o Ollama Cloud. Isso é útil para depuração e para entender como o Rig está interagindo com o serviço.
 
 ![ollama-service](./img/ollama-service.png)
 
-como você pode ver, é muito simples integrar LLMs em Rust usando o Rig e o Ollama Cloud. Com apenas algumas linhas de código, você pode criar agentes de IA poderosos e interativos.
+Como podemos ver, é muito simples integrar LLMs em Rust usando o Rig e o Ollama Cloud. Com apenas algumas linhas de código, podemos criar agentes de IA poderosos e interativos.
 
 ## Conclusão
 
 Com o Rig, a integração de LLMs em Rust se torna muito mais acessível e eficiente. Ele abstrai a complexidade das chamadas de API e do gerenciamento de contexto, permitindo que os desenvolvedores se concentrem na lógica de negócios e na experiência do usuário.
 
-também é importante notar que o Rig é um projeto em constante evolução, e a comunidade Rust está cada vez mais interessada em explorar as capacidades de IA. Portanto, vale a pena acompanhar as atualizações do Rig e contribuir para o seu desenvolvimento.
+Também é importante notar que o Rig é um projeto em constante evolução, e a comunidade Rust está cada vez mais interessada em explorar as capacidades de IA. Portanto, vale a pena acompanhar as atualizações do Rig e contribuir para o seu desenvolvimento.
 
-finalmente, a combinação de Rust com LLMs abre novas possibilidades para aplicações de alto desempenho e seguras, tornando-se uma escolha atraente para desenvolvedores que desejam explorar o mundo da inteligência artificial.
+Finalmente, a combinação de Rust com LLMs abre novas possibilidades para aplicações de alto desempenho e seguras, tornando-se uma escolha atraente para desenvolvedores que desejam explorar o mundo da inteligência artificial.
 
-incentivo você a experimentar o Rig e o Ollama Cloud em seus próprios projetos Rust, e explorar as capacidades de LLMs de forma segura e eficiente.
+Incentivo você a experimentar o Rig e o Ollama Cloud em seus próprios projetos Rust, e explorar as capacidades de LLMs de forma segura e eficiente.
 
-agradeço por ler este artigo e espero que ele tenha sido útil para você iniciar sua jornada com IA em Rust usando o Rig.
+Agradeço por ler este artigo e espero que ele tenha sido útil para você iniciar sua jornada com IA em Rust usando o Rig.
 
-como próximos passos, você pode explorar a criação de agentes mais complexos, integração com outras ferramentas e até mesmo a implementação de RAG (Retrieval-Augmented Generation) para acessar documentos privados.
+Como próximos passos, você pode explorar a criação de agentes mais complexos, integração com outras ferramentas e até mesmo a implementação de RAG (Retrieval-Augmented Generation) para acessar documentos privados.
 
-o codigo completo deste artigo está disponível no meu [rust-rig-example](https://github.com/Daniel-Dos/danieldias-rust-blog-examples/tree/master/rust-rig-example)
+O codigo completo deste artigo está disponível no meu [rust-rig-example](https://github.com/Daniel-Dos/danieldias-rust-blog-examples/tree/master/rust-rig-example)
 
 Até a próxima vez, continue explorando e aprendendo! 🚀
 
