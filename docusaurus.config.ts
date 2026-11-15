@@ -92,6 +92,10 @@ const config: Config = {
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
+        sitemap: {
+          lastmod: 'date',
+          ignorePatterns: ['**/markdown-page*'],
+        },
         theme: {
           customCss: ['./src/css/custom.css'],
         },
