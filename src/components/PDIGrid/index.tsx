@@ -17,7 +17,7 @@ type DiagCard = { id: string; icon: string; label: string; color: string; items:
 
 const DIAGNOSIS: DiagCard[] = [
   {
-    id: 'strengths', icon: '✦', label: 'Strengths', color: '#00e5a0',
+    id: 'strengths', icon: '✦', label: 'Strengths', color: '#8fd2a0',
     items: [
       '6+ years building distributed systems at Itaú Unibanco (Java + Go)',
       'Apache TomEE Committer — active in Jakarta EE ecosystem',
@@ -36,7 +36,7 @@ const DIAGNOSIS: DiagCard[] = [
     ],
   },
   {
-    id: 'opportunities', icon: '→', label: 'Opportunities', color: '#0ea5e9',
+    id: 'opportunities', icon: '→', label: 'Opportunities', color: '#c9962f',
     items: [
       'Blog already covers real systems — evolve to architecture decision posts',
       'Rust differentiates: rare profile in Brazilian backend market',
@@ -69,7 +69,7 @@ type Pillar = { id: string; num: string; icon: string; label: string; color: str
 
 const PILLARS: Pillar[] = [
   {
-    id: 'arch', num: '01', icon: '🏗️', label: 'Architecture & System Design', color: '#00e5a0',
+    id: 'arch', num: '01', icon: '🏗️', label: 'Architecture & System Design', color: '#8fd2a0',
     points: [
       'Go beyond "how to implement" → "why this approach in this context"',
       'Write ADRs for real decisions at Itaú: Kafka vs Pulsar, DynamoDB vs RDS, ECS vs Lambda',
@@ -79,7 +79,7 @@ const PILLARS: Pillar[] = [
     ],
   },
   {
-    id: 'leadership', num: '02', icon: '🧭', label: 'Technical Leadership & Influence', color: '#0ea5e9',
+    id: 'leadership', num: '02', icon: '🧭', label: 'Technical Leadership & Influence', color: '#c9962f',
     points: [
       'Leverage your 11 talks experience — bring that voice to internal design reviews',
       'Conduct code reviews that explain the why, not just request changes',
@@ -116,7 +116,7 @@ type Phase = { id: string; period: string; label: string; color: string; goal: s
 
 const PHASES: Phase[] = [
   {
-    id: 'foundation', period: 'Months 1–4', label: 'Foundation', color: '#00e5a0',
+    id: 'foundation', period: 'Months 1–4', label: 'Foundation', color: '#8fd2a0',
     goal: 'Architecture base + consolidate Rust fundamentals',
     items: [
       { text: 'Read Designing Data-Intensive Applications — Kleppmann' },
@@ -128,7 +128,7 @@ const PHASES: Phase[] = [
     ],
   },
   {
-    id: 'expansion', period: 'Months 5–8', label: 'Expansion', color: '#0ea5e9',
+    id: 'expansion', period: 'Months 5–8', label: 'Expansion', color: '#c9962f',
     goal: 'Leadership, distributed systems depth, and intermediate Rust',
     items: [
       { text: 'Lead 1 technical design review per sprint — document the decision' },
@@ -156,8 +156,8 @@ const PHASES: Phase[] = [
 
 /* ─── METRICS DATA ───────────────────────────────────────────── */
 const METRICS = [
-  { value: '6+',  label: 'blog posts published',    color: '#00e5a0' },
-  { value: '3+',  label: 'ADRs written at work',    color: '#0ea5e9' },
+  { value: '6+',  label: 'blog posts published',    color: '#8fd2a0' },
+  { value: '3+',  label: 'ADRs written at work',    color: '#c9962f' },
   { value: '1+',  label: 'RFC completed',           color: '#f59e0b' },
   { value: '1+',  label: 'Rust project in prod',    color: '#e07040' },
   { value: '1+',  label: 'initiative led at Itaú',  color: '#f87171' },
@@ -252,8 +252,8 @@ const KIND_LABEL: Record<ResKind, string> = {
   community: '💬 Community',
 };
 const KIND_COLOR: Record<ResKind, string> = {
-  book:      '#0ea5e9',
-  site:      '#00e5a0',
+  book:      '#c9962f',
+  site:      '#8fd2a0',
   practice:  '#f59e0b',
   community: '#a78bfa',
 };

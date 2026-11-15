@@ -1,10 +1,15 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
+import Gear from '@site/src/components/Gear';
 import styles from './styles.module.css';
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+      <div className={styles.gearWatermark} aria-hidden="true">
+        <Gear id="footer-gear" size={260} teeth={20} spokes={6} hole={14} className={styles.gearSpin} />
+      </div>
+
       <div className={styles.inner}>
         <div className={styles.brand}>
           <Link to="/" className={styles.brandName}>Daniel Dias</Link>
@@ -26,11 +31,7 @@ export default function Footer() {
         <span className={styles.copy}>
           © {new Date().getFullYear()} Daniel Dias. Built with Docusaurus.
         </span>
-        {/* <div className={styles.socials}>
-          <a href="https://github.com/daniel-dos"       target="_blank" rel="noopener noreferrer" className={styles.socialLink}>GITHUB</a>
-          <a href="https://www.linkedin.com/in/daniel-dias" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>LINKEDIN</a>
-          <a href="https://www.apache.org"               target="_blank" rel="noopener noreferrer" className={styles.socialLink}>APACHE</a>
-        </div> */}
+        <span className={styles.plate}>⚙ forged with brass &amp; code</span>
       </div>
     </footer>
   );

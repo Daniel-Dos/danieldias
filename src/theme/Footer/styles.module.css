@@ -1,24 +1,72 @@
 /* ============================================================
-   Footer styles
+   Footer styles — steampunk
    Place at: src/theme/Footer/styles.module.css
    ============================================================ */
 
 .footer {
-  background: #040710;
-  border-top: 1px solid rgba(0,172,215,0.12);
+  position: relative;
+  background:
+    radial-gradient(ellipse 50% 60% at 80% 0%, rgba(232, 145, 43, 0.09) 0%, transparent 65%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.16) 0px,
+      rgba(0, 0, 0, 0.16) 2px,
+      transparent 2px,
+      transparent 48px
+    ),
+    linear-gradient(180deg, #130c07 0%, #0c0704 100%);
+  border-top: 1px solid rgba(201, 150, 47, 0.35);
   padding: 3rem 2rem 2rem;
   font-family: 'Nunito', sans-serif;
+  overflow: hidden;
 }
+
 .footer::before {
   content: '';
-  display: block;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0,172,215,0.4), transparent);
-  margin-bottom: 3rem;
+  background: linear-gradient(90deg, transparent, rgba(240, 205, 122, 0.75), transparent);
+}
+
+/* rivet strip */
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  opacity: 0.4;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #c9962f 0 2px, transparent 2.5px);
+  background-size: 56px 8px;
+  background-position: center;
+}
+
+.gearWatermark {
+  position: absolute;
+  right: -70px;
+  bottom: -90px;
+  opacity: 0.06;
+  pointer-events: none;
+  filter: drop-shadow(0 0 20px rgba(232, 145, 43, 0.4));
+}
+
+.gearSpin {
+  animation: gearSpin 160s linear infinite;
+}
+
+@keyframes gearSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 .inner {
+  position: relative;
+  z-index: 1;
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
@@ -34,18 +82,19 @@
 }
 
 .brandName {
-  font-family: 'Lora', serif;
+  font-family: 'Cinzel', 'Lora', serif;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #c8e8f8;
+  letter-spacing: 0.03em;
+  color: #f3d792;
   text-decoration: none;
   transition: color 0.2s;
 }
-.brandName:hover { color: #00acd7; }
+.brandName:hover { color: #f7e2ad; }
 
 .tagline {
   font-size: 0.85rem;
-  color: #4a7a9a;
+  color: #9a7c55;
   font-weight: 700;
   letter-spacing: 0.05em;
 }
@@ -58,19 +107,38 @@
 }
 
 .link {
+  position: relative;
   font-size: 0.88rem;
   font-weight: 700;
-  color: #4a7a9a;
+  color: #b29572;
   text-decoration: none;
   transition: color 0.2s;
 }
-.link:hover { color: #00acd7; }
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240, 205, 122, 0.8), transparent);
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+.link:hover {
+  color: #f0cd7a;
+}
+.link:hover::after {
+  transform: scaleX(1);
+}
 
 .bottom {
+  position: relative;
+  z-index: 1;
   max-width: 1000px;
   margin: 2rem auto 0;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(0,172,215,0.08);
+  border-top: 1px solid rgba(201, 150, 47, 0.14);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,21 +148,33 @@
 
 .copy {
   font-size: 0.8rem;
-  color: #2a4a5e;
+  color: #6b5236;
   font-weight: 700;
 }
 
-.socials {
-  display: flex;
-  gap: 1rem;
+.plate {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(201, 150, 47, 0.5);
 }
 
-.socialLink {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: #2a4a5e;
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.2s;
+@media (max-width: 700px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+  .links {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  .footer {
+    padding: 2.5rem 1.25rem 1.75rem;
+  }
 }
-.socialLink:hover { color: #00acd7; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gearSpin {
+    animation: none;
+  }
+}

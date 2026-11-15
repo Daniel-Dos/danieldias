@@ -1,91 +1,179 @@
 /* ============================================================
-   HomepageFeatures styles
+   HomepageFeatures styles — steampunk workshop cards
    Place at: src/components/HomepageFeatures/styles.module.css
    ============================================================ */
 
 .features {
   position: relative;
-  background: #070d1a;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232, 145, 43, 0.1) 0%, transparent 65%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.14) 0px,
+      rgba(0, 0, 0, 0.14) 2px,
+      transparent 2px,
+      transparent 46px
+    ),
+    linear-gradient(180deg, #150d07 0%, #100906 100%);
   padding: 5rem 2rem 6rem;
-  border-top: 1px solid rgba(0,172,215,0.12);
+  border-top: 1px solid rgba(201, 150, 47, 0.35);
 }
+
 .features::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0,172,215,0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(240, 205, 122, 0.7), transparent);
+}
+
+/* brass rivet strip */
+.rivets {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  opacity: 0.45;
+  background-image: radial-gradient(circle, #c9962f 0 2px, transparent 2.5px);
+  background-size: 56px 8px;
+  background-position: center;
+  pointer-events: none;
 }
 
 .sectionTitle {
-  font-family: 'Lora', serif;
+  font-family: 'Cinzel', 'Lora', serif;
   text-align: center;
   font-size: 2rem;
-  color: #c8e8f8;
-  margin-bottom: 3rem;
+  letter-spacing: 0.04em;
+  background: linear-gradient(180deg, #fff4d6, #e9c97f 55%, #b87333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.4rem;
   font-weight: 700;
+  filter: drop-shadow(0 1px 0 rgba(40, 20, 5, 0.9));
 }
-.sectionTitle::after {
-  content: '';
-  display: block;
-  width: 56px;
-  height: 2px;
-  background: linear-gradient(90deg, #0090c0, #00c8e8);
-  border-radius: 2px;
-  margin: 0.7rem auto 0;
+
+.sectionSub {
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  color: rgba(201, 150, 47, 0.65);
+  margin-bottom: 3rem;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 .card {
-  background: rgba(255,255,255,0.025);
-  border-radius: 16px;
-  padding: 2rem 1.75rem;
-  text-align: center;
-  border: 1px solid rgba(0,172,215,0.12);
-  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
   position: relative;
+  background:
+    linear-gradient(180deg, rgba(58, 38, 18, 0.55), rgba(22, 14, 8, 0.85));
+  border-radius: 12px;
+  padding: 2.4rem 1.75rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(201, 150, 47, 0.28);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
   overflow: hidden;
   backdrop-filter: blur(4px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 226, 160, 0.14),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+    0 10px 30px rgba(0, 0, 0, 0.35);
 }
+
 .card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #0090c0, #00c8e8, #8ecf70);
-  border-radius: 16px 16px 0 0;
+  background: linear-gradient(90deg, #7c4f12, #f0cd7a 50%, #7c4f12);
+  border-radius: 12px 12px 0 0;
 }
+
+/* corner rivets */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(201, 150, 47, 0.14);
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(240, 205, 122, 0.55) 0 1.6px, transparent 2.2px),
+    radial-gradient(circle, rgba(240, 205, 122, 0.55) 0 1.6px, transparent 2.2px),
+    radial-gradient(circle, rgba(240, 205, 122, 0.55) 0 1.6px, transparent 2.2px),
+    radial-gradient(circle, rgba(240, 205, 122, 0.55) 0 1.6px, transparent 2.2px);
+  background-repeat: no-repeat;
+  background-position: 2px 2px, calc(100% - 2px) 2px, 2px calc(100% - 2px), calc(100% - 2px) calc(100% - 2px);
+  background-size: 6px 6px;
+}
+
 .card:hover {
   transform: translateY(-8px);
-  border-color: rgba(0,172,215,0.35);
-  box-shadow: 0 16px 40px rgba(0,172,215,0.1);
+  border-color: rgba(240, 205, 122, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 226, 160, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+    0 18px 44px rgba(224, 122, 47, 0.18);
 }
 
-.cardIcon {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  display: block;
-  transition: transform 0.3s;
+.cardMedallion {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 1.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 30%, rgba(201, 150, 47, 0.22), rgba(12, 7, 4, 0.95) 70%);
+  border: 1px solid rgba(201, 150, 47, 0.35);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.8), 0 0 22px rgba(224, 122, 47, 0.12);
+  transition: transform 0.4s, box-shadow 0.4s;
 }
-.card:hover .cardIcon { transform: scale(1.12); }
+.cardMedallion svg {
+  animation: spin 70s linear infinite;
+}
+.card:hover .cardMedallion {
+  transform: scale(1.08);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.8), 0 0 30px rgba(232, 145, 43, 0.35);
+}
 
 .cardTitle {
-  font-family: 'Lora', serif;
-  font-size: 1.12rem;
-  color: #c8e8f8;
+  font-family: 'Cinzel', 'Lora', serif;
+  font-size: 1.1rem;
+  color: #efd79b;
   margin-bottom: 0.7rem;
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .cardDesc {
+  position: relative;
+  z-index: 1;
   font-size: 0.9rem;
-  color: #5a8aaa;
+  color: #b29572;
   line-height: 1.75;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardMedallion svg {
+    animation: none;
+  }
 }
