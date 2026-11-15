@@ -1,6 +1,23 @@
-import { themes as prismThemes } from 'prism-react-renderer';
+import type { PrismTheme } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+
+/* Warm brass / parchment syntax palette */
+const steampunkPrism: PrismTheme = {
+  plain: { color: '#e6d3b3', backgroundColor: '#120b06' },
+  styles: [
+    { types: ['comment', 'prolog', 'doctype', 'cdata'], style: { color: '#7f6a4c', fontStyle: 'italic' } },
+    { types: ['punctuation'], style: { color: '#b9a07d' } },
+    { types: ['property', 'tag', 'constant', 'symbol', 'deleted'], style: { color: '#d97757' } },
+    { types: ['boolean', 'number'], style: { color: '#e8912b' } },
+    { types: ['selector', 'attr-name', 'char', 'builtin', 'inserted'], style: { color: '#a8c78f' } },
+    { types: ['string'], style: { color: '#b9cf98' } },
+    { types: ['operator', 'entity', 'url'], style: { color: '#c2a479' } },
+    { types: ['atrule', 'attr-value', 'keyword'], style: { color: '#f0cd7a' } },
+    { types: ['function', 'class-name'], style: { color: '#e9c97f' } },
+    { types: ['regex', 'important', 'variable'], style: { color: '#d8a63f' } },
+  ],
+};
 
 const config: Config = {
   title: 'Daniel Dias',
@@ -53,7 +70,7 @@ const config: Config = {
       tagName: 'link',
       attributes: {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Nunito:wght@400;700;800&family=Fira+Code:wght@400;500&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:wght@400;600;700&family=Nunito:wght@400;700;800&family=Fira+Code:wght@400;500&display=swap',
       },
     },
   ],
@@ -136,8 +153,8 @@ const config: Config = {
     },
 
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: steampunkPrism,
+      darkTheme: steampunkPrism,
       additionalLanguages: [
         'java',
         'rust',

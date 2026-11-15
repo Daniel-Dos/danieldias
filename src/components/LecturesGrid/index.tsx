@@ -128,7 +128,7 @@ const KIND_LABEL: Record<Resource['kind'], string> = {
 };
 const KIND_COLOR: Record<Resource['kind'], string> = {
   youtube:     '#ce412b',
-  speakerdeck: '#00acd7',
+  speakerdeck: '#c9962f',
   slideshare:  '#f89820',
 };
 
